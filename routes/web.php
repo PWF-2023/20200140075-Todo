@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/  
+*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/todo', [TodoController::class, 'index'])->name('todo.index');
+    Route::post('/todo', [TodoController::class, 'store'])->name('todo.store');
     Route::get('/todo/create', [TodoController::class, 'create'])->name('todo.create');
     Route::get('/todo/edit', [TodoController::class, 'edit'])->name('todo.edit');
 
